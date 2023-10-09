@@ -1,0 +1,50 @@
+<app-preloader *ngIf="isLoading"></app-preloader>
+<div *ngIf="!isLoading">
+
+
+
+<router-outlet></router-outlet>
+<div class="container headingdiv">
+  <h5 class="maintitle">Complained officers  <span class="numberofofficer"> {{drivers.length }}</span> </h5>
+
+</div>
+
+
+<div class="container outerdiv" >
+  <p>These are the  officers those who complained by the customers</p>
+
+
+
+ <div class="showNoDataMessage" *ngIf="chekcingData">
+  <img src="../../assets/images/nouser.png" alt="" class="nouserimage">
+
+  <p class="mt-2"><b>No chats yet</b></p>
+ </div>
+
+
+         <div class="memberholder" *ngFor="let driver of drivers">
+
+
+          <img [src]="driver.profileImageUrl" (error)="driver.profileImageUrl='../../assets/images/customer_driver_prfile.png'" class="officerprofileimage">
+
+          <a [routerLink]="['/policemember/police-man-chat']" [queryParams]="{ officeruid: driver.uid, officername:driver.name }" class="gotochatpage">
+
+
+          <div class="infoholder">
+            <p class="infotext"><b>Officer name </b>    : {{ driver.name }} officer</p>
+            <p class="infotext"><b>Phone number </b>   : {{ driver.phone }}</p>
+            <p class="infotext"><b>Description  </b>   : {{ driver.car }}</p>
+
+          </div>
+        </a>
+        <a [routerLink]="['/policemember/police-man-chat-image']" [queryParams]="{ officeruid: driver.uid, officername:driver.name }" class="gotochatpage">
+              <img src="../../assets/images/messageImages.png" alt="" class="messageImage" style="width:60px;height:60px" title="see the images">
+            </a>
+         </div>
+
+
+
+
+</div>
+
+</div>
