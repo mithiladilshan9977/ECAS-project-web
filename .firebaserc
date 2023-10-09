@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "thridfinalyearproject": {
+      "hosting": {
+        "project": [
+          "thridfinalyearproject"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "thridfinalyearproject"
+  }
+}
